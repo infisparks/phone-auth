@@ -22,5 +22,40 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Utilities for Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.input-otp-slot {
+  @apply relative flex h-14 w-10 items-center justify-center border-y border-r border-white/10 text-xl transition-all first:rounded-l-md first:border-l last:rounded-r-md;
+}
+
+.input-otp-slot-active {
+  @apply z-10 ring-2 ring-blue-500 ring-offset-2 ring-offset-black;
+}
+
+@keyframes caret-blink {
+
+  0%,
+  70%,
+  100% {
+    opacity: 1;
+  }
+
+  20%,
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-caret-blink {
+  animation: caret-blink 1.25s ease-out infinite;
 }
